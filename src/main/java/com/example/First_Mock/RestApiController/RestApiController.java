@@ -1,27 +1,24 @@
 package com.example.First_Mock.RestApiController;
 
-import com.example.First_Mock.Metods.POST;
+import com.example.First_Mock.Metods.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RestApiController {
 
-    @GetMapping("/data")
-    public ResponseEntity<String> get() {
-        String json = "{\"login\":\"example\",\"password\":\"password\"}";
-        return new ResponseEntity<>(json, HttpStatus.OK);
+    @GetMapping("/getUser")
+    public ResponseEntity<?> LoginPage() {
+        return ResponseEntity.ok(new User("aaa", "bbb"));
     }
 
-    @PostMapping("/data")
-    ResponseEntity<POST> postData(
-            @RequestParam(value = "login", required = true) String login,
-            @RequestParam(value = "password", required = true) String password
-    ) {
-        return new ResponseEntity<>(new POST(login, password), HttpStatus.OK);
+
+    @PostMapping(value = "/postUser", consumes = {"*/*"})
+    ResponseEntity<?> Authenticate(@Validated @RequestBody User user) {
+        if ((user.getLogin() == null) || (user.getPassword() == null))
+            return ResponseEntity.internalServerError().build();
+        return ResponseEntity.ok(user);
     }
 }

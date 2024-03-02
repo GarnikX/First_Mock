@@ -6,36 +6,26 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 
-
-
-public class POST {
+public class User {
 
     private String login;
     private String password;
     private String currentDate;
 
-
-    public POST(String login, String password) {
-        this.login = login;
-        this.password = password;
-        this.currentDate = LocalDateTime.now(ZoneId.of("Europe/Moscow")).format(DateTimeFormatter.ofPattern("d.MM.yyyy HH:mm:ss"));
-    }
-
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getLogin() {
-        return login;
+        return this.login;
     }
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getCurrentTime() {
@@ -44,5 +34,20 @@ public class POST {
 
     public void setCurrentTime(Date currentDate) {
         this.currentDate = LocalDateTime.now(ZoneId.of("Europe/Moscow")).format(DateTimeFormatter.ofPattern("d.MM.yyyy HH:mm:ss"));
+    }
+
+    public User() {
+        super();
+    }
+
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+        this.currentDate = LocalDateTime.now(ZoneId.of("Europe/Moscow")).format(DateTimeFormatter.ofPattern("d.MM.yyyy HH:mm:ss")).toString();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "login:'" + login + '\'' + ", password:'" + password + '\'' + ", date:'" + currentDate + '\'' + '}';
     }
 }
