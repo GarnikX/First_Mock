@@ -19,6 +19,6 @@ public class RestApiController {
     ResponseEntity<?> Authenticate(@Validated @RequestBody User user) {
         if ((user.getLogin() == null) || (user.getPassword() == null))
             return ResponseEntity.internalServerError().build();
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(new User(user.getLogin(),user.getPassword()));
     }
 }
