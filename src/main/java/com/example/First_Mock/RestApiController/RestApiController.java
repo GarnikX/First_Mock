@@ -1,12 +1,10 @@
 package com.example.First_Mock.RestApiController;
-
 import com.example.First_Mock.Metods.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.Map;
 
 @RestController
@@ -17,7 +15,7 @@ public class RestApiController {
         return ResponseEntity.ok(new User("aaa", "bbb"));
     }
 
-    @PostMapping(value = "/postUser", consumes = {"*/*"})
+    @PostMapping(value = "/postUser")
     ResponseEntity<?> Authenticate(@RequestBody Map<String, String> request) {
         try {
             if ((request.size() > 2) || (!request.containsKey("login")) || (!request.containsKey("password")) || (request.get("login") == null) || (request.get("password") == null)) {
