@@ -43,6 +43,6 @@ out/
 ### Exclusions ###
 !gradle/wrapper/gradle-wrapper.jar
 !.mvn/wrapper/maven-wrapper.jar
-!**/jolokia/jolokia-agent-jvm-2.0.1-javaagent.jar
+!**/jolokia-agent-jvm-2.0.1-javaagent.jar
 !**/src/main/**
 !**/src/test/**
