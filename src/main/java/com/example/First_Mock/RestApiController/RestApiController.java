@@ -29,12 +29,4 @@ public class RestApiController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
-
-
-//    @PostMapping(value = "/postUser", consumes = {"*/*"})
-//    ResponseEntity<?> Authenticate(@Validated @RequestBody User user) {
-//        if ((user.getLogin() == null) || (user.getPassword() == null))
-//            return ResponseEntity.internalServerError().build();
-//        return ResponseEntity.ok(new User(user.getLogin(),user.getPassword()));
-//    }
 }

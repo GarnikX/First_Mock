@@ -11,19 +11,7 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 @SpringBootApplication
 public class FirstMockApplication {
-
-//	@Bean
-//	@Primary
-//	public ObjectMapper objectMapper() {
-//		ObjectMapper mapper = new ObjectMapper();
-//		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-//		mapper.configure(DeserializationFeature.FAIL_ON_NULL_CREATOR_PROPERTIES, true);
-//		return mapper;
-//	}
-
-
-	public static void main(String[] args) {
-		SpringApplication.run(FirstMockApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(FirstMockApplication.class, args);
+    }
 }
